@@ -17,7 +17,8 @@ def add_technique(request):
             cd = form.cleaned_data
             new_technique = models.ExperimentalTechnique(name=cd['name'],
                                                          description=cd['description'],
-                                                         preset_function=cd['type'])
+                                                         preset_function=cd['type'],
+                                                         EO_term=cd['EO_term'])
             new_technique.save()
             for cat in cd['categories']:
                 new_technique.categories.add(cat)
